@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TikTok authorization - Brainrot Local</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="page">
+      <section class="section">
+        <h1>TikTok authorization</h1>
+        <p id="message">Redirecting back to Brainrot Local...</p>
+        <p>
+          If nothing happens, make sure Brainrot Local is open locally at
+          <code>http://127.0.0.1:5173</code>.
+        </p>
+      </section>
+    </main>
+    <script>
+      const target = new URL("http://127.0.0.1:5173/api/tiktok/oauth-callback");
+      target.search = window.location.search;
+      document.querySelector("#message").textContent = "Redirecting back to Brainrot Local...";
+      window.location.replace(target.toString());
+    </script>
+  </body>
+</html>
